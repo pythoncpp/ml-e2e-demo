@@ -129,6 +129,32 @@ pipeline {
             }
         }
 
+        stage('Push to Registry') {
+            when {
+                anyOf {
+                    environment name: 'ENVIRONMENT', value: 'staging'
+                    environment name: 'ENVIRONMENT', value: 'prod'
+                }
+            }
+            steps {
+                script {
+                    withCredentials([usernamePassword(
+                        credentialsId: 'docker-hub',
+                        usernameVariable: 'DOCKER_USERNAME',
+                        passwordVariable: 'DOCKER_PASSWORD'
+                    )]) {
+                        sh '''
+                            echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+                            docker tag salary-predictor:${MODEL_VERSION}-${BUILD_NUMBER} \
+                                ${DOCKER_USERNAME}/salary-predictor:${MODEL_VERSION}-${BUILD_NUMBER}
+                            docker push ${DOCKER_USERNAME}/salary-predictor:${MODEL_VERSION}-${BUILD_NUMBER}
+                            docker push ${DOCKER_USERNAME}/salary-predictor:latest
+                        '''
+                    }
+                }
+            }
+        }
+
     }
 
     
