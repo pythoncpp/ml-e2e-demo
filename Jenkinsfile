@@ -129,6 +129,23 @@ pipeline {
             }
         }
 
+        stage('Build Docker Image') {
+            when {
+                anyOf {
+                    environment name: 'ENVIRONMENT', value: 'staging'
+                    environment name: 'ENVIRONMENT', value: 'prod'
+                }
+            }
+            steps {
+                script {
+                    sh '''
+                        docker build -t salary-predictor:${MODEL_VERSION}-${BUILD_NUMBER} .
+                        docker tag salary-predictor:${MODEL_VERSION}-${BUILD_NUMBER} salary-predictor:latest
+                    '''
+                }
+            }
+        }
+
         stage('Push to Registry') {
             when {
                 anyOf {
