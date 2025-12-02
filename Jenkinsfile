@@ -97,6 +97,24 @@ pipeline {
             }
         } 
 
+        stage('Model Training') {
+            when {
+                expression { params.RETRAIN == true }
+            }
+            steps {
+                script {
+                    sh '''
+                        python3 train_model.py \
+                            --data-path data/raw/Salary_Data.csv \
+                            --output-dir models \
+                            --test-size 0.2 \
+                            --random-state 42
+                    '''
+                    archiveArtifacts 'models/*.pkl, models/*.json'
+                    archiveArtifacts 'reports/*.json, reports/*.png'
+                }
+            }
+        }
 
     }
 
