@@ -3,9 +3,11 @@ pipeline {
     // pick any available agent
     agent any
 
-    parameters {
-
-    }
+    // parameters {
+    //     choice(name: 'ENVIRONMENT', choices: ['dev', 'staging', 'prod'], description: 'Deployment environment')
+    //     booleanParam(name: 'RETRAIN', defaultValue: false, description: 'Retrain the model')
+    //     string(name: 'MODEL_VERSION', defaultValue: '1.0.0', description: 'Model version')
+    // }
 
     environment {
         PATH = "${PATH}:/usr/local/bin:/usr/bin"
