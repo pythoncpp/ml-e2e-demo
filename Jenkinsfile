@@ -163,9 +163,9 @@ pipeline {
                         sh '''
                             echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
                             docker tag salary-predictor:${MODEL_VERSION}-${BUILD_NUMBER} \
-                                ${DOCKER_USERNAME}/salary-predictor:${MODEL_VERSION}-${BUILD_NUMBER}
-                            docker push ${DOCKER_USERNAME}/salary-predictor:${MODEL_VERSION}-${BUILD_NUMBER}
-                            docker push ${DOCKER_USERNAME}/salary-predictor:latest
+                                ${DOCKER_USERNAME}/salary-prediction:${MODEL_VERSION}-${BUILD_NUMBER}
+                            docker push ${DOCKER_USERNAME}/salary-prediction:${MODEL_VERSION}-${BUILD_NUMBER}
+                            docker push ${DOCKER_USERNAME}/salary-prediction:latest
                         '''
                     }
                 }
