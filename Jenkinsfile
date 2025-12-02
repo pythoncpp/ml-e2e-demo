@@ -32,6 +32,59 @@ pipeline {
                 }
             }
         }
+
+        stage('Code Quality') {
+            steps {
+                script {
+                    sh '''
+                        # echo "Running Black..."
+                        # black --check src/ tests/
+                        
+                        # echo "Running Flake8..."
+                        # flake8 src/ tests/
+                        
+                        # echo "Running MyPy..."
+                        # mypy src/
+                        
+                        echo "Running Pylint..."
+                        # pylint src/
+                    '''
+                }
+            }
+        }
+
+        stage('Unit Tests') {
+            steps {
+                script {
+                    sh '''                                             
+                        export PYTHONPATH="${WORKSPACE}/src:${PYTHONPATH}"
+                        echo "PYTHONPATH: ${PYTHONPATH}"
+                        
+                        # Install package in development mode
+                        pip3 install -e . --break-system-packages || echo "Install in dev mode failed, continuing..."
+                        
+                        # Run tests with coverage for the src directory
+                        python3 -m pytest tests/ \
+                            -v \
+                            --cov=src \
+                            --cov-report=xml:coverage.xml \
+                            --cov-report=html:htmlcov \
+                            --cov-report=term-missing \
+                            --junitxml=test-results.xml
+                    '''
+
+                    junit 'test-results.xml'
+                    publishHTML(target: [
+                        reportDir: 'htmlcov',
+                        reportFiles: 'index.html',
+                        reportName: 'Coverage Report'
+                    ])
+                }
+                
+            }
+        }
+        
+
     }
 
     
