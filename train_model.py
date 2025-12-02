@@ -100,7 +100,7 @@ def main():
         logger.info(f"Model saved to: {model_path}")
         logger.info("="*50)
         
-    except:
+    except Exception as e:
         logger.error(f"Training failed: {e}")
         sys.exit(1)
 
