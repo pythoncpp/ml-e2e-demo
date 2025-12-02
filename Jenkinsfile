@@ -116,6 +116,19 @@ pipeline {
             }
         }
 
+        stage('Model Evaluation') {
+            when {
+                expression { params.RETRAIN == true }
+            }
+            steps {
+                script {
+                    sh '''
+                        python3 scripts/evaluate_model.py reports/evaluation_report.json
+                    '''
+                }
+            }
+        }
+
     }
 
     
