@@ -1,0 +1,12 @@
+pandas
+numpy
+scikit-learn
+joblib
+mlflow
+fastapi
+uvicorn
+pydantic
+python-dotenv
+dvc
+dvc-s3
+boto3

@@ -1,0 +1,14 @@
+artifact_uri: file:///Volumes/MyData/Sunbeam/2025/august/wokshops/day7/code/mlruns/241729810093966890/ad721eb08caa4eab900f45a4c912b5a3/artifacts
+end_time: 1764693805445
+entry_point_name: ''
+experiment_id: '241729810093966890'
+lifecycle_stage: active
+run_id: ad721eb08caa4eab900f45a4c912b5a3
+run_name: linear_regression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764693802955
+status: 3
+tags: []
+user_id: amitk

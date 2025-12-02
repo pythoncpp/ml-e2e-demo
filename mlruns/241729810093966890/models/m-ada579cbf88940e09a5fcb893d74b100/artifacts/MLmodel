@@ -1,0 +1,22 @@
+artifact_path: file:///Volumes/MyData/Sunbeam/2025/august/wokshops/day7/code/mlruns/241729810093966890/models/m-ada579cbf88940e09a5fcb893d74b100/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.12
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.1
+mlflow_version: 3.6.0
+model_id: m-ada579cbf88940e09a5fcb893d74b100
+model_size_bytes: 435
+model_uuid: m-ada579cbf88940e09a5fcb893d74b100
+prompts: null
+run_id: fb0d9475c8fe42bb9f0edacc5e6db0cf
+utc_time_created: '2025-12-02 16:42:38.304584'

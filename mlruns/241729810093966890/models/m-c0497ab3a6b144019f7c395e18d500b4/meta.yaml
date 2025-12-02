@@ -1,0 +1,10 @@
+artifact_location: file:///Volumes/MyData/Sunbeam/2025/august/wokshops/day7/code/mlruns/241729810093966890/models/m-c0497ab3a6b144019f7c395e18d500b4/artifacts
+creation_timestamp: 1764693809135
+experiment_id: '241729810093966890'
+last_updated_timestamp: 1764693811100
+model_id: m-c0497ab3a6b144019f7c395e18d500b4
+model_type: null
+name: model
+source_run_id: 85b7c9e1d32a4917ae29b0a30daa4789
+status: 2
+status_message: null

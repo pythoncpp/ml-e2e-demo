@@ -1,0 +1,14 @@
+artifact_uri: file:///Volumes/MyData/Sunbeam/2025/august/wokshops/day7/code/mlruns/241729810093966890/d2ff30f845de48c7840465501007fe75/artifacts
+end_time: 1764693766886
+entry_point_name: ''
+experiment_id: '241729810093966890'
+lifecycle_stage: active
+run_id: d2ff30f845de48c7840465501007fe75
+run_name: random_forest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764693760970
+status: 3
+tags: []
+user_id: amitk
