@@ -21,16 +21,18 @@ pipeline {
                 checkout scm
             }
         }
-    }
 
-    stage('Setup Environment') {
-        steps {
-            script {
-                sh '''
-                    pip3 install -r requirements.txt --break-system-packages
-                    pip3 install -r requirements-dev.txt --break-system-packages
-                '''
+        stage('Setup Environment') {
+            steps {
+                script {
+                    sh '''
+                        pip3 install -r requirements.txt --break-system-packages
+                        pip3 install -r requirements-dev.txt --break-system-packages
+                    '''
+                }
             }
         }
     }
+
+    
 }
